@@ -35,7 +35,7 @@ export default class LoginScreen extends React.Component{
     componentDidMount() {
       GoogleSignin.configure({
         scopes: ["https://www.googleapis.com/auth/userinfo.profile"],
-        webClientId: '***', // Enter Your ID Here
+        webClientId: '***', // TODO : Get WebClient ID From Firebase By Enabling Google SIGN In
         offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
       });
     }
