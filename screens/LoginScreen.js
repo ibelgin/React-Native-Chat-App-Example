@@ -14,7 +14,7 @@ import {
 } from "react-native"
 
 import AntDesign from "react-native-vector-icons/AntDesign";
-import {GoogleSignin, GoogleSigninButton, statusCodes} from '@react-native-community/google-signin';
+import {GoogleSignin,statusCodes} from '@react-native-community/google-signin';
 
 const Dev_Height = Dimensions.get('screen').height
 const Dev_Width = Dimensions.get('screen').width
@@ -29,24 +29,21 @@ export default class LoginScreen extends React.Component{
         loggedIn:false,
         photo:""
       }
+      this.isSignedIn()
+    }
 
+    componentDidMount() {
       GoogleSignin.configure({
         scopes: ["https://www.googleapis.com/auth/userinfo.profile"],
-        webClientId: '******',
+        webClientId: '106054659932-bo6jk5s6eukeib2pf7d8r6n7er6ofn1b.apps.googleusercontent.com',
         offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
-        forceCodeForRefreshToken: true, // [Android] related to `serverAuthCode`, read the docs link below *.
       });
-
-      this.isSignedIn()
-
-
     }
 
     signIn = async () => {
       try {
         await GoogleSignin.hasPlayServices();
         const userInfo = await GoogleSignin.signIn();
-
         this.setState({ userInfoDetails : userInfo })
         this.setState({ userInfoDetails : this.state.userInfoDetails })
         this.setState({ name : this.state.userInfoDetails.user.name })
@@ -57,13 +54,9 @@ export default class LoginScreen extends React.Component{
         this.setState({loggedIn : this.state.loggedIn})
 
       } catch (error) {
-        console.log('Message', error.message);
         if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-          console.log('User Cancelled the Login Flow');
         } else if (error.code === statusCodes.IN_PROGRESS) {
-          console.log('Signing In');
         } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-          console.log('Play Services Not Available or Outdated');
         } else {
           console.log(error.message);
         }
@@ -78,10 +71,10 @@ export default class LoginScreen extends React.Component{
 
     isSignedIn = async () => {
       const isSignedIn = await GoogleSignin.isSignedIn();
-      if (!!isSignedIn) {
+      if (isSignedIn) {
         this.getCurrentUserInfo()
       } else {
-        console.log('Please Login')
+        this.signIn()
       }
     };
 
@@ -90,18 +83,17 @@ export default class LoginScreen extends React.Component{
         const userInfo = await GoogleSignin.signInSilently();
         this.setState({ userInfoDetails : userInfo})
         this.setState({ userInfoDetails : this.state.userInfoDetails})
+        this.setState({ name : this.state.userInfoDetails.user.name })
         this.setState({ name : this.state.name})
         this.setState({ photo : this.state.userInfoDetails.user.photo })
         this.setState({ photo : this.state.photo})
         this.setState({loggedIn : true })
         this.setState({loggedIn : this.state.loggedIn})
 
-
       } catch (error) {
         if (error.code === statusCodes.SIGN_IN_REQUIRED) {
-          console.log('User has not signed in yet');
+          this.signIn()
         } else {
-          console.log("Something went wrong. Unable to get user's info");
         }
       }
     };
@@ -126,7 +118,7 @@ export default class LoginScreen extends React.Component{
 
                 <View style={styles.sign_up_google_View}>
                 {!this.state.loggedIn ? 
-                  <TouchableOpacity style={styles.sign_up_button} onPress={this.signIn}>
+                  <TouchableOpacity style={styles.sign_up_button} onPress={this.isSignedIn}>
                   <AntDesign name="google" color="#FFF" size={24}/>
                     <Text style={styles.sign_up_google}>Sign Up With Google </Text> 
                   </TouchableOpacity> :
@@ -153,7 +145,6 @@ const styles=StyleSheet.create({
     design_view:{
       height:"40%",
       width:"100%",
-      backgroundColor:"#000",
       alignItems:"center"
     },
     design_image:{
