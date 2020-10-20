@@ -1,37 +1,73 @@
-## Welcome to GitHub Pages
+# BelChat
 
-You can use the [editor on GitHub](https://github.com/Belgin-Android/React-Native-Chat-App-Example/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### This Chat App is Made Using React Native , Firebase With GiftedChat
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Installing
 
-### Markdown
+> Clone This Repo To Your PC 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+> Run npm install
 
-```markdown
-Syntax highlighted code block
+> TODO
 
-# Header 1
-## Header 2
-### Header 3
+> Run The App
 
-- Bulleted
-- List
+## TODO 
 
-1. Numbered
-2. List
+* Follow The Installation at https://github.com/react-native-community/google-signin
 
-**Bold** and _Italic_ and `Code` text
+* Get WebClientID ( Login Page )
 
-[Link](url) and ![Image](src)
+```javascript
+GoogleSignin.configure({
+   scopes: ["https://www.googleapis.com/auth/userinfo.profile"],
+   webClientId: '******', // TODO : Get WebClient ID From Firebase By Enabling Google SIGN In
+   offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
+   forceCodeForRefreshToken: true, // [Android] related to `serverAuthCode`, read the docs link below *.
+ });
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+* Firebase Configuration's ( Fire.js )
 
-### Jekyll Themes
+```javascript
+firebase.initializeApp({
+   apiKey: "***",
+   authDomain: "***",
+   databaseURL: "***",
+   projectId: "***",
+   storageBucket: "***",
+   messagingSenderId: "***",
+   appId: "***",
+   measurementId: "***"
+ });
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Belgin-Android/React-Native-Chat-App-Example/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Built With
 
-### Support or Contact
+* React Native
+* react-native-firebase
+* react-native-gifted-chat
+* react-native-community/google-signin
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Check Out My Youtube Channel
+
+[Youtube Channel - Belgin Android](https://youtube.com/c/belginandroid)
+
+## Sample Preview
+
+<img src="https://user-images.githubusercontent.com/61349423/94794860-1ab97080-03fa-11eb-8e87-eba1c55b8a4b.jpg" width="282" height="501">
+
+## Authors
+
+* **Belgin Android** - *All Works* - [Belgin Android](https://github.com/Belgin-Android)
+
+## Problems ?
+
+* Contact Me At [Instagram - @reactnative.modules](https://www.instagram.com/reactnative.modules/)
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
+
