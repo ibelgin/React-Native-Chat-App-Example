@@ -6484,7 +6484,7 @@ react-native@0.63.3:
     use-subscription "^1.0.0"
     whatwg-fetch "^3.0.0"
 
-react-navigation-stack@^2.7.0:
+react-navigation-stack@^2.10.2:
   version "2.10.2"
   resolved "https://registry.yarnpkg.com/react-navigation-stack/-/react-navigation-stack-2.10.2.tgz#9b6d38503496f9ef519acc6cad270ec0ace4ccbd"
   integrity sha512-mkJnMFYUyE4JAMGpQO/tOX8SUpckdNkrwgK+5prNwdCKSUY2EqqYv1f9OHUjbhFd9lfmbEGnoB83Lv0/PWv/0g==
