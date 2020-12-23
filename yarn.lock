@@ -6492,7 +6492,7 @@ react-navigation-stack@^2.10.2:
     color "^3.1.3"
     react-native-iphone-x-helper "^1.3.0"
 
-react-navigation@^4.3.9:
+react-navigation@^4.4.3:
   version "4.4.3"
   resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-4.4.3.tgz#41a83583e7ee07c9c9e0fb8ee0508261f239086c"
   integrity sha512-tNBQQzbw0PVo9FLypQUUCISMcXW0wCW8oQeHtY0spWf35KC3IZHq/WcBm4E956wFsaqrDMGCUnyaVrxZNSuUGg==
