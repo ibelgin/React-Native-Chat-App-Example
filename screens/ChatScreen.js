@@ -6,9 +6,9 @@ import Fire from "../Fire";
 
 export default class ChatScreen extends React.Component{
     
-        state={
-            messages:[]
-        }
+    state={
+       messages:[]
+    }
 
     get user(){
         return{
