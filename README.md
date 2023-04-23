@@ -1,4 +1,4 @@
-# BelChat
+# ReactChat
 
 ### This Chat App is Made Using React Native , Firebase With GiftedChat
 
